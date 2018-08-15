@@ -57,16 +57,13 @@ end
 
 def runner
   # code runner here
-  welcome
-  prompt_user
-  user_input = get_user_input
-  if user_input == "h"
-    card_total += deal_card
-  elsif user_input == "s"
-    card_total
-  else
-    invalid_command
+  welcome #executes the welcome message
+  card_total = initial_round
+  until card_total > 21
+    card_total = hit?(card_total)
+    display_card_total(card_total)
   end
-  card_total
+  end_game(card_total)
+end
 end
     
